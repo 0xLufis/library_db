@@ -1,4 +1,4 @@
-create sequence seq_employee_id start with 1 increment by 1;
+create sequence seq_customer_id start with 1 increment by 1;
 
 create table customers(
        customer_id number(10) not null,

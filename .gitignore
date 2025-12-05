@@ -1,0 +1,2 @@
+# Ignore PL/SQL Developer Backup Files (format: filename.~extension)
+*.~*
