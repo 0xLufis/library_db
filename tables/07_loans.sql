@@ -1,7 +1,4 @@
-create sequence seq_loan_id 
-start with 1
-increment by 1
-minvalue 100;
+create sequence seq_loan_id start with 100 increment by 1 minvalue 100;
 
 create table loans (
        loan_id number(10) not null,
@@ -14,7 +11,7 @@ create table loans (
        
      
        constraint pk_loan primary key (loan_id),
-       constraint fk_loan_customer_id foreign key (customer_id) references cusotmers (customer_id),
-       constraint foreign fk_loan_employee_id key (employee_id) references employees (employee_id),
+       constraint fk_loan_customer_id foreign key (customer_id) references customers (customer_id),
+       constraint fk_loan_employee_id foreign key (employee_id) references employees (employee_id)
        
 );

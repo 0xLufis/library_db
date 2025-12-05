@@ -6,6 +6,6 @@ create table authors (
        first_name varchar2(100) NOT NULL,
        last_name varchar2(100) not null,
        created_at DATE DEFAULT SYSDATE
-):
+);
 
 --Nem kell lehetne a PK kulon constraint is de jovanezigy
