@@ -1,5 +1,3 @@
-PROMPT Creating user library_MANAGER...
-
 ----------------------------------
 -- 1. Create user, add grants   --
 ----------------------------------
@@ -30,6 +28,7 @@ CREATE USER library_manager
   QUOTA UNLIMITED ON users
 ;
 
+--Grants
 GRANT CREATE TRIGGER to library_manager;
 GRANT CREATE SESSION TO library_manager;
 GRANT CREATE TABLE TO library_manager;
@@ -40,5 +39,3 @@ GRANT CREATE TYPE TO library_manager;
 grant CREATE JOB TO library_manager;
 
 ALTER SESSION SET CURRENT_SCHEMA=library_manager;
-
-PROMPT Done.
