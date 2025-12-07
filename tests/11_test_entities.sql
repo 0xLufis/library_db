@@ -6,6 +6,7 @@ DECLARE
   v_emp_id   NUMBER;
   v_cust_id  NUMBER;
 BEGIN
+  --Technically this file is redundant by now but it can stay for now
   DBMS_OUTPUT.PUT_LINE('--- INSERTING ENTITIES ---');
 
   -- A. AUTHORS & BOOKS
@@ -17,8 +18,7 @@ BEGIN
   
   -- 3. Link to Category 
   SELECT category_id INTO v_cat_id FROM categories WHERE category_name = 'Fantasy';
-  pkg_book_manager.add_book_category(v_book_id, v_cat_id);
-
+  
   -- B. EMPLOYEES
   pkg_employee_manager.add_employee('Alice', 'Admin', v_emp_id);
   -- (Trigger trg_add_emp will automatically generate her keycard!)

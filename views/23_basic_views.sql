@@ -1,6 +1,6 @@
 SET SERVEROUTPUT ON;
 PROMPT === CREATING HUMAN-READABLE VIEWS ===
-
+-- NOTE: Not much use for the HUMAN READABLE part but it looks cool in the demo queries
 -- 1. CATALOG VIEW (Books + Authors + Categories)
 CREATE OR REPLACE VIEW view_library_catalog AS
 SELECT b.book_id

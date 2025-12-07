@@ -73,6 +73,45 @@ BEGIN
   FOR r IN (SELECT COUNT(*) as cnt FROM books_history) LOOP
     DBMS_OUTPUT.PUT_LINE('   History entries found: ' || r.cnt);
   END LOOP;
+  
+  -- ========================================================
+  -- SCENARIO 4: Create Active Overdue Loan (For View Demo)
+  -- ========================================================
+  DBMS_OUTPUT.PUT_LINE('4. Creating a lingering Overdue Loan...');
+
+  -- 1. Find a new customer (Michael Johnson) and a book (Dune)
+  SELECT customer_id INTO v_cust_id FROM customers WHERE first_name = 'Michael' AND last_name = 'Johnson';
+  
+  -- Get book ID for 'Dune' (or any book not currently rented)
+  SELECT book_id INTO v_book_id1 
+    FROM books 
+   WHERE title = 'Dune' 
+     AND rownum = 1;
+
+  -- 2. Create the loan
+  pkg_loan_manager.create_loan(v_cust_id, v_emp_id, 14, v_loan_id);
+  pkg_loan_manager.add_book_to_loan(v_loan_id, v_book_id1);
+
+  -- 3. TIME TRAVEL HACK: Set the due date to 10 days ago
+  -- This makes it "Overdue" right now
+  UPDATE loans 
+     SET return_by_date = SYSDATE - 10 
+   WHERE loan_id = v_loan_id;
+   
+  COMMIT;
+  
+  DBMS_OUTPUT.PUT_LINE('   [SUCCESS] Loan ID ' || v_loan_id || ' is now artificially overdue by 10 days.');
+  
+  -- ========================================================
+  -- SCENARIO 5: Create Inactive User (For View Demo)
+  -- ========================================================
+  DBMS_OUTPUT.PUT_LINE('5. Creating Inactive User...');
+
+  -- We simply create him and DO NOT create a loan.
+  -- We reuse the v_cust_id variable just to hold the output ID.
+  pkg_customer_manager.add_customer('Gary', 'Ghost', v_cust_id);
+
+  DBMS_OUTPUT.PUT_LINE('   [SUCCESS] Customer "Gary Ghost" created. He has 0 loans.');
 
 END;
 /
