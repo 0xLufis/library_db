@@ -42,7 +42,6 @@ The system is composed of the following functional areas:
 │   └── pkg_role_manager.pck
 ├── tests
 │   ├── 10_test_reference_v2.sql
-│   ├── 10_test_reference.sql
 │   ├── 11_test_entities.sql
 │   └── 12_test_scenarios_v2.sql
 ├── triggers
@@ -94,6 +93,7 @@ SELECT * FROM view_loan_status WHERE "Status" = 'OVERDUE!';
 
 -- Staff details
 SELECT * FROM view_staff_roster;
+
 
 
 
