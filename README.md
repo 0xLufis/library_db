@@ -29,9 +29,6 @@ The system is composed of the following functional areas:
 * **IDE:** PL/SQL Developer (Allround Automations) is recommended for running the command scripts.
 * **Permissions:** Initial setup requires a user with `SYSTEM` or `DBA` privileges to create the project user.
 
-# Directory Structure
-
-```
 ├── packages
 │   ├── pkg_author_manager.pck
 │   ├── pkg_book_manager.pck
@@ -40,23 +37,11 @@ The system is composed of the following functional areas:
 │   ├── pkg_employee_manager.pck
 │   ├── pkg_loan_manager.pck
 │   └── pkg_role_manager.pck
-├── tables
-│   ├── 00_AUTHORS.sql
-│   ├── 01_categories.sql
-│   ├── 02_books.sql
-│   ├── 03_roles.sql
-│   ├── 04_employees.sql
-│   ├── 05_customers.sql
-│   ├── 06_book_categories.sql
-│   ├── 07_loans.sql
-│   ├── 08_loan_books.sql
-│   └── 09_book_history.sql
 ├── tests
 │   ├── 10_test_reference_v2.sql
 │   ├── 10_test_reference.sql
 │   ├── 11_test_entities.sql
-│   ├── 12_test_scenarios_v2.sql
-│   └── 12_test_scenarios.sql
+│   └── 12_test_scenarios_v2.sql
 ├── triggers
 │   ├── trg_add_emp.trg
 │   ├── trg_audit_book_stock.trg
@@ -71,12 +56,10 @@ The system is composed of the following functional areas:
 ├── 00_cleanup.sql
 ├── 01_user.sql
 ├── 02_tables_v2.sql
-├── 02_tables.sql
 ├── 03_packages.sql
 ├── 04_triggers.sql
 ├── README.md
 └── SETUP.sql
-```
 
 ## Installation
 
@@ -108,6 +91,7 @@ SELECT * FROM view_loan_status WHERE "Status" = 'OVERDUE!';
 
 -- Staff details
 SELECT * FROM view_staff_roster;
+
 
 
 
