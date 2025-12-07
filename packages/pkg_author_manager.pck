@@ -4,7 +4,6 @@ CREATE OR REPLACE PACKAGE pkg_author_manager IS
                       ,o_author_id  OUT authors.author_id%TYPE);
 
   FUNCTION get_author_name(p_author_id IN NUMBER) RETURN VARCHAR2;
-
 END pkg_author_manager;
 /
 CREATE OR REPLACE PACKAGE BODY pkg_author_manager IS
@@ -28,7 +27,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_author_manager IS
   EXCEPTION
     WHEN dup_val_on_index THEN
       raise_application_error(-20001, 'Author already exists.');
-    WHEN other THEN
+    WHEN OTHERS THEN
       raise_application_error(-20002, 'Error creating author: ' || SQLERRM);
   END add_author;
 

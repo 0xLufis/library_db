@@ -1,5 +1,7 @@
+PROMPT Creating users, assigning grants...
+
 --Create User
-CREATE USER library_manager 
+CREATE USER LIBRARY_MANAGER 
   IDENTIFIED BY "12345678" 
   DEFAULT TABLESPACE users
   QUOTA UNLIMITED ON users
@@ -13,6 +15,7 @@ GRANT CREATE VIEW TO library_manager;
 GRANT CREATE SEQUENCE TO library_manager;
 GRANT CREATE PROCEDURE TO library_manager;
 GRANT CREATE TYPE TO library_manager;
-grant CREATE JOB TO library_manager;
+GRANT CREATE JOB TO library_manager;
 
 ALTER SESSION SET CURRENT_SCHEMA=library_manager;
+/
