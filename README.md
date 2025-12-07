@@ -29,6 +29,9 @@ The system is composed of the following functional areas:
 * **IDE:** PL/SQL Developer (Allround Automations) is recommended for running the command scripts.
 * **Permissions:** Initial setup requires a user with `SYSTEM` or `DBA` privileges to create the project user.
 
+# Directory Structure
+
+```
 ├── packages
 │   ├── pkg_author_manager.pck
 │   ├── pkg_book_manager.pck
@@ -60,7 +63,7 @@ The system is composed of the following functional areas:
 ├── 04_triggers.sql
 ├── README.md
 └── SETUP.sql
-
+```
 ## Installation
 
 ### 1. For a clean build
@@ -91,6 +94,7 @@ SELECT * FROM view_loan_status WHERE "Status" = 'OVERDUE!';
 
 -- Staff details
 SELECT * FROM view_staff_roster;
+
 
 
 
