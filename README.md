@@ -97,7 +97,7 @@ This script will perform a full build cycle:
 ## Usage and Testing
 
 ### Reporting Views
-The following views are available for querying system status:
+The following views and are available for querying system status:
 
 ```sql
 -- Inventory check
@@ -108,3 +108,6 @@ SELECT * FROM view_loan_status WHERE "Status" = 'OVERDUE!';
 
 -- Staff details
 SELECT * FROM view_staff_roster;
+
+
+
